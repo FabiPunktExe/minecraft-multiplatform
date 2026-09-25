@@ -1,3 +1,5 @@
 rootProject.name = "minecraft-multiplatform"
 
-include("gradle-plugin")
+includeBuild("gradle-plugin")
+include(":config:common")
+include(":config:neoforge")

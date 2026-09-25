@@ -1,0 +1,10 @@
+[versions]
+neoforge-moddev = "2.0.147"
+neoforge-neoforge = "26.3.0.22-beta"
+jspecify = "1.0.1"
+
+[libraries]
+jspecify = { module = "org.jspecify:jspecify", version.ref = "jspecify" }
+
+[plugins]
+neoforge-moddev = { id = "net.neoforged.moddev", version.ref = "neoforge-moddev" }
