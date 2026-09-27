@@ -1,7 +1,8 @@
 plugins {
-    id("de.fabiexe.minecraft-multiplatform.multiloader.common")
+    id("de.fabiexe.minecraft-multiplatform.multiloader.loader")
     `java-library`
     `maven-publish`
+    alias(libs.plugins.fabric.loom)
 }
 
 group = "de.fabiexe.minecraft-multiplatform"
@@ -10,19 +11,28 @@ version = "0.1.0"
 multiloader {
     projectName = "mmp-config"
     javaVersion = 25
+    commonProject = project(":config:common")
 }
 
 repositories {
     mavenCentral()
+    maven("https://maven.shedaniel.me")
 }
 
 dependencies {
-    api(libs.jspecify)
+    minecraft(libs.minecraft)
+    api(libs.clothConfig)
 }
 
 java {
     withSourcesJar()
     withJavadocJar()
+}
+
+tasks {
+    jar {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
 }
 
 publishing {

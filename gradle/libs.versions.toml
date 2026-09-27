@@ -1,10 +1,16 @@
 [versions]
+minecraft = "26.3"
 neoforge-moddev = "2.0.147"
 neoforge-neoforge = "26.3.0.22-beta"
 jspecify = "1.0.1"
+clothConfig = "26.3.159"
+fabric-loom = "1.18-SNAPSHOT"
 
 [libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
 jspecify = { module = "org.jspecify:jspecify", version.ref = "jspecify" }
+clothConfig = { module = "me.shedaniel.cloth:cloth-config", version.ref = "clothConfig" }
 
 [plugins]
 neoforge-moddev = { id = "net.neoforged.moddev", version.ref = "neoforge-moddev" }
+fabric-loom = { id = "net.fabricmc.fabric-loom", version.ref = "fabric-loom" }
