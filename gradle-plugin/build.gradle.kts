@@ -30,6 +30,12 @@ gradlePlugin {
 
 publishing {
     repositories {
-        mavenLocal()
+        maven("https://repo.diruptio.de/repository/maven-public-releases") {
+            name = "diruptioPublic"
+            credentials {
+                username = (System.getenv("DIRUPTIO_REPO_USERNAME") ?: project.findProperty("maven_username") ?: "").toString()
+                password = (System.getenv("DIRUPTIO_REPO_PASSWORD") ?: project.findProperty("maven_password") ?: "").toString()
+            }
+        }
     }
 }

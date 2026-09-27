@@ -112,6 +112,7 @@ public abstract sealed class ConfigPart<T> implements Supplier<T> permits Boolea
     /**
      * Creates a new configuration part for an enum value.
      *
+     * @param <E> The type of the enum
      * @param name The name under which the value is stored in the configuration file
      * @param enumClass The class of the enum
      * @param defaultValue The default value that applies as long as no value differing from the default has been set

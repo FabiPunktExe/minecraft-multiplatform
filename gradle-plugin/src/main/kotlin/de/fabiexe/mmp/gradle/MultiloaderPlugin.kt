@@ -21,13 +21,22 @@ open class MultiloaderPlugin<T : MultiloaderExtension>(private val extensionClas
             toolchain.languageVersion.set(extension.javaVersion.map(JavaLanguageVersion::of))
         }
 
-        target.tasks.withType<JavaCompile> {
+        target.tasks.withType<JavaCompile>().configureEach {
             options.release.set(extension.javaVersion)
             options.encoding = "UTF-8"
         }
 
-        target.tasks.withType<Jar> {
-            archiveFileName.set(extension.projectName.map { name -> "$name-${project.version}-${project.name}.jar" })
+        target.tasks.withType<Jar>().configureEach {
+            if (name != "remapJar") {
+                val suffix = when (name) {
+                    "sourcesJar" -> "-sources"
+                    "javadocJar" -> "-javadoc"
+                    else -> ""
+                }
+                archiveFileName.set(extension.projectName.map { jarName ->
+                    "$jarName-${project.version}-${project.name}$suffix.jar"
+                })
+            }
         }
     }
 }
