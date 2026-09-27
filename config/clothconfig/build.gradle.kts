@@ -1,18 +1,20 @@
 plugins {
     `java-library`
-    alias(libs.plugins.neoforge.moddev)
+    alias(libs.plugins.fabric.loom)
     `maven-publish`
 }
 
 group = "de.fabiexe.minecraft-multiplatform"
 version = "0.1.0"
 
-neoForge {
-    version = libs.versions.neoforge.neoforge.get()
+repositories {
+    maven("https://maven.shedaniel.me")
 }
 
 dependencies {
+    minecraft(libs.minecraft)
     api(projects.config.common)
+    implementation(libs.clothConfig)
 }
 
 java {
@@ -39,6 +41,6 @@ publishing {
 
     publications.create<MavenPublication>("maven") {
         from(components["java"])
-        artifactId = "config-neoforge"
+        artifactId = "config-clothconfig"
     }
 }
