@@ -5,6 +5,8 @@ neoforge-neoforge = "26.3.0.22-beta"
 jspecify = "1.0.0"
 clothConfig = "26.3.159"
 fabric-loom = "1.18-SNAPSHOT"
+clothConfig = "26.3.159"
+fabric-loom = "1.18-SNAPSHOT"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
