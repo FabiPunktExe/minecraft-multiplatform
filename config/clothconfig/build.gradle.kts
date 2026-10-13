@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "de.fabiexe.minecraft-multiplatform"
-version = "0.1.0"
+version = "0.1.1"
 
 multiloader {
     projectName = "mmp-config"

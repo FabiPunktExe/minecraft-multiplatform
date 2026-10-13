@@ -36,11 +36,13 @@ public final class ConfigClothConfig {
      */
     public static void load(Config config, String modId) {
         Path path = Paths.get("config", modId + ".json");
-        try {
-            JsonObject json = JsonParser.parseReader(Files.newBufferedReader(path)).getAsJsonObject();
-            load(config, json);
-        } catch (IOException e) {
-            LOGGER.error("Failed to load config from {}", path, e);
+        if (Files.exists(path)) {
+            try {
+                JsonObject json = JsonParser.parseReader(Files.newBufferedReader(path)).getAsJsonObject();
+                load(config, json);
+            } catch (IOException e) {
+                LOGGER.error("Failed to load config from {}", path, e);
+            }
         }
     }
 
